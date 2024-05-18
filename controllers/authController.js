@@ -50,7 +50,7 @@ export const registerController = async(req,res) => {
         
 
     } catch (error){
-        console.log(error);
+        console.log(error)
         res.status(500).send({
             sucess: false,
             message:'Error in Registeration',

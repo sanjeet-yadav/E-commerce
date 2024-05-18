@@ -1,6 +1,7 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+    {
 name:{
     type:String,
     required:true,
@@ -24,10 +25,12 @@ address: {
     required: true
 },
 role: {
-    type:Number,
-    default:0
+    type: Number,
+    default: 0,
 }
 
-},{timestamps:true})
+},
+{timestamps:true}
+);
 
-export default mongoose.model('Ecommerce',userSchema)
+export default mongoose.model('users',userSchema)
