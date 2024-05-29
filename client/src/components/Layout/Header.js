@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom';
-import { HiOutlineShoppingBag } from "react-icons/hi";
+// import { HiOutlineShoppingBag } from "react-icons/hi";
 function Header() {
   return (
     <>

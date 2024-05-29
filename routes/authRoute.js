@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('/register',registerController);
 
 //LOGIN || POST
-router.post('/login',loginController)
+router.post("/login",loginController);
 
 //test routes
 router.get("/test", requireSingnIN,isAdmin,  testController);
