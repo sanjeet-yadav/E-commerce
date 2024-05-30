@@ -5,10 +5,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
+import { useAuth } from "../../context/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [auth,setAuth] = useAuth()
 
   const navigate = useNavigate();
 
@@ -22,6 +24,14 @@ const Login = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
+        // geting user data in json formate to home page
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+        localStorage.setItem('auth',JSON.stringify(res.data));
+//      after the login its navigate into the home page
         navigate("/");
       } else {
         toast.error(res.data.message);
