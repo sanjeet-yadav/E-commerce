@@ -15,4 +15,10 @@ router.post("/login",loginController);
 //test routes
 router.get("/test", requireSingnIN,isAdmin,  testController);
 
+//protected route auth
+// yaha se request jaagi if ok the you acces the dashboard page
+router.get("/user-auth", requireSingnIN, (req, res)=>{
+    res.status(200).send({ ok: true});
+})
+
 export default router;

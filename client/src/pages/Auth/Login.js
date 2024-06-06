@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
@@ -13,8 +12,8 @@ const Login = () => {
   const [auth,setAuth] = useAuth()
 
   const navigate = useNavigate();
-
-  // form function
+  const location = useLocation();
+  // form function 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -32,7 +31,7 @@ const Login = () => {
         });
         localStorage.setItem('auth',JSON.stringify(res.data));
 //      after the login its navigate into the home page
-        navigate("/");
+        navigate(location.state || "/");
       } else {
         toast.error(res.data.message);
       }
