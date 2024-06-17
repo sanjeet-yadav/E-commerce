@@ -80,18 +80,18 @@ const handleUpdate = async (e) => {
       const { data } = await axios.delete(
         `/api/v1/category/delete-category/${pId}`
       );
-      if (data.success) {
+      if (data?.success) {
         toast.success(`category is deleted`);
 
         getAllCategory();
       } else {
-        toast.error(data.message);
+        toast.error(data?.message);
       }
     } catch (error) {
       toast.error("Somtihing went wrong");
     }
   };
-  
+
 
   return (
     <Layout title={"Dashboard - Create Category"}>
